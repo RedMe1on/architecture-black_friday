@@ -8,10 +8,11 @@
 docker compose up -d
 ```
 
-Проводим инициализацию mongoDB с заполнением данных
+
+Проводим инициализацию кластера Redis + инициализацию mongoDB с заполнением данных
 
 ```shell
-./scripts/mongo-init.sh
+./scripts/init.sh
 ```
 
 ## Как проверить
