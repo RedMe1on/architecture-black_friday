@@ -1,17 +1,23 @@
 services:
   mongodb1:
-    image: mongo:latest
+    container_name: mongodb1
+    image: dh-mirror.gitverse.ru/mongo:latest
     volumes:
-      - mongodb_data_container:/data/db
+      - mongodb1_data_container:/data/db
 
   pymongo_api:
-    image: kazhem/pymongo_api:1.0.0
+    container_name: pymongo_api
+    build: 
+      context: api_app
+      dockerfile: Dockerfile
+    depends_on:
+      - mongodb1
     ports:
-      - 8000:8080
+      - 8080:8080
     environment:
       MONGODB_URL: "mongodb://mongodb1"
       MONGODB_DATABASE_NAME: "somedb"
 
 
 volumes:
-  mongodb_data_container:
+  mongodb1_data_container:
