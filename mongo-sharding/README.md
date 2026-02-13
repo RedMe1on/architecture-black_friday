@@ -1,4 +1,4 @@
-# pymongo-api
+# mongo-sharding
 
 ## Как запустить
 
